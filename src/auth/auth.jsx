@@ -24,7 +24,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin,
     };
   
     checkAuthStatus();
-  }, [PageAuthenticated]);  // Rimuovi il commento per includere navigate tra le dipendenze
+  }, [PageAuthenticated]); 
   
 
   const handleLoginSuccess = () => {

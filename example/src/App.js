@@ -1,15 +1,14 @@
-import React from 'react'
-
-import { Auth } from 'react-auth-component'
-import 'react-auth-component/dist/index.css'
+// App.js
+import React from 'react';
+import { Router } from 'wouter';
+import AppRoutes from './route/routes';
 
 const App = () => {
-  // return <ExampleComponent text="Create React Library Example 😄" />
-  return  <Auth
-  PageAuthenticated="home"
-  urlRegister="http://192.168.1.6:8086/api/auth/register"
-  urlLogin="http://192.168.1.6:8086/api/auth/login"
-/>
-}
+  return (
+    <Router>
+      <AppRoutes />
+    </Router>
+  );
+};
 
-export default App
+export default App;

@@ -5,7 +5,7 @@ export { Auth };
 // export {  NestedRoutes } from './auth/auth';
 // export { default as Login } from './auth/login.jsx';
 // // src/index.js
-export { isAuthenticated } from './auth/handleJwt.js';
+export { isAuthenticated,clearAuthToken } from './auth/handleJwt.js';
 // export { default as Button } from './component/button.jsx';
 
 
