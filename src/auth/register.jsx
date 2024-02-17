@@ -98,8 +98,8 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin }) => 
           <div>Loading...</div>
         ) : (
           <div className={stylesLogin.formActions}>
-            <button onClick={registerUser}>Sign In</button>
-            <button onClick={toggleLogin}>Switch to Login</button>
+            <button className={stylesLogin.buttonLogin} onClick={registerUser}>Sign In</button>
+            <button className={stylesLogin.buttonLogin} onClick={toggleLogin}>Switch to Login</button>
           </div>
         )}
         <p style={{ color: 'red' }}>{error}</p>

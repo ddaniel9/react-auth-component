@@ -71,8 +71,8 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin }) => {
         <div>Loading...</div>
       ) : (
         <div className={stylesLogin.formActions}>
-          <button onClick={handleLogin}>Log in!</button>
-          <button onClick={toggleLogin}>Switch to Register</button>
+          <button className={stylesLogin.buttonLogin} onClick={handleLogin}>Log in!</button>
+          <button className={stylesLogin.buttonLogin} onClick={toggleLogin}>Switch to Register</button>
         </div>
       )}
     </div>
