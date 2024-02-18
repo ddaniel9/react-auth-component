@@ -10,7 +10,7 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin }) => {
 
   const handleLogin = async () => {
     try {
-      // Validazione dei campi
+      
       if (!email.trim() || !password.trim()) {
         alert('Error: Email and password are required');
         return;
@@ -18,7 +18,6 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin }) => {
 
       setLoading(true);
 
-      // Chiamata all'API con Axios e l'URL dinamico
       const response = await axios.post(
         urlLogin,
         {
@@ -30,7 +29,6 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin }) => {
       console.log(response.data.jwt);
 
       if (response.data.jwt) {
-        // Salva il token, gestisci il login e resetta lo stato
         await saveAuthToken(response.data.jwt);
         onLoginSuccess();
         setEmail('');
@@ -47,8 +45,8 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin }) => {
   };
 
   return (
-    <div className={stylesLogin.loginContainer}> {/* Aggiunto un wrapper con classe per centrare il contenuto */}
-    <div className={stylesLogin.loginForm}> {/* Aggiunto un wrapper per il form */}
+    <div className={stylesLogin.loginContainer}> 
+    <div className={stylesLogin.loginForm}> 
       <div className={stylesLogin.formGroup}>
         <label>Email Address:</label>
         <input

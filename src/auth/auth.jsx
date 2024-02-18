@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation  } from 'wouter';  // Importa hook wouter per la navigazione
+import { useLocation  } from 'wouter';  
 import { isAuthenticated } from './handleJwt.js';
 import Login from './login.jsx';
 import Register from './register.jsx';
 
-const Auth = ({ PageAuthenticated, urlRegister, urlLogin,
-    // loading, setLoading,
-    // isLogin, setIsLogin,location, setLocation
-}) => {
-  const [location, setLocation] = useLocation();  // Ottieni la posizione corrente per la navigazione
+const Auth = ({ PageAuthenticated, urlRegister, urlLogin,}) => {
+  const [location, setLocation] = useLocation();  
 
   const [loading, setLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(true);

@@ -18,9 +18,13 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin }) => 
     const { email, password, password_confirmation } = userData;
 
     try {
+      
+      if (!email || !password || !password_confirmation) {
+        setError('Please fill in all the fields');
+        return;
+      }
       setLoading(true);
 
-      // Chiamata all'API di registrazione con Axios e l'URL dinamico
       const response = await axios.post(
         urlRegister,
         {
@@ -33,7 +37,6 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin }) => 
 
       console.log(response);
 
-      // Chiamata all'API di login dopo la registrazione
       const authResponse = await axios.post(
         urlLogin,
         {
@@ -45,7 +48,6 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin }) => 
       console.log(authResponse.data.jwt);
 
       if (authResponse.data.jwt) {
-        // Salva il token, gestisci la registrazione e resetta lo stato
         await saveAuthToken(response.data.jwt);
         onRegisterSuccess();
         setUserData({

@@ -12,16 +12,11 @@ const AppRoutes = () => {
       <nav>
         <Link href="/home">Home</Link>
         <Link href="/about">About</Link>
-        {/* <Button onClick={() => console.log('Cliccato')} label="Clicca qui" /> */}
         <Link href="/">Login</Link>
       </nav>
 
       <Route path="/home" component={Home} />
       <Route path="/about" component={About} />
-
-      {/* <Route path="/" component={Auth} /> */}
-
-      {/* Utilizza il componente Auth con le tue personalizzazioni */}
       <Route
         path="/"
         component={() => (
