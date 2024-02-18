@@ -7,7 +7,10 @@
   "description": "react-auth-component",
   "author": "ddaniel9",
   "license": "MIT",
-  "repository": "ddaniel9/react-auth-component",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddaniel9/react-auth-component.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
