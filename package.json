@@ -3,6 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/ddaniel9"
   },
+  "npmRegistry": "https://registry.npmjs.org/",
   "version": "1.0.10",
   "description": "react-auth-component",
   "author": "ddaniel9",
