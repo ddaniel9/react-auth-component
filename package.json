@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/ddaniel9"
   },
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "react-auth-component",
   "author": "ddaniel9",
   "license": "MIT",
