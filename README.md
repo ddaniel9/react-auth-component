@@ -29,8 +29,8 @@ class Example extends Component {
         component={() => (
           <Auth
             PageAuthenticated="home"
-            urlRegister="http://192.168.1.2:8086/api/auth/register"
-            urlLogin="http://192.168.1.2:8086/api/auth/login"
+            urlRegister="http://example.com/api/auth/register"
+            urlLogin="http://example.com/api/auth/login"
           />
         )}
       />
