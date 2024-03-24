@@ -1,14 +1,14 @@
 // Home.js
 import React from 'react';
-import { useLocation  } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {clearAuthToken} from 'react-auth-component';
 
 const Home = () => {
-  const [location, setLocation] = useLocation();  // Ottieni la posizione corrente per la navigazione
-
+  const history = useHistory();  
+  
   const logOut = () =>{
     clearAuthToken();
-      setLocation("/");
+    history.push("/");
    
   }
 
