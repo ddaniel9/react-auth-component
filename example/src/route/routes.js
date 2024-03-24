@@ -15,8 +15,8 @@ const AppRoutes = () => {
         <Link to="/">Login</Link>
       </nav>
       <Routes>
-        <Route path="/home" component={Home} />
-        <Route path="/about" component={About} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route
           exact
           path="/"
@@ -25,11 +25,10 @@ const AppRoutes = () => {
               PageAuthenticated="home"
               urlRegister="http://example.com/api/auth/register"
               urlLogin="http://example.com/api/auth/login"
-            />}
-
+            />
+          }
         />
       </Routes>
-
     </>
   );
 };

@@ -1,14 +1,14 @@
 // Home.js
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 import {clearAuthToken} from 'react-auth-component';
 
 const Home = () => {
-  const history = useHistory();  
-  
+  const navigate = useNavigate(); 
+
   const logOut = () =>{
     clearAuthToken();
-    history.push("/");
+    navigate("/");
    
   }
 

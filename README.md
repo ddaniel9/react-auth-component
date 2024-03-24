@@ -23,9 +23,15 @@ import 'react-auth-component/dist/index.css'
 
 class Example extends Component {
   render() {
- <Routes>
-        <Route path="/home" component={Home} />
-        <Route path="/about" component={About} />
+    <>
+      <nav>
+        <Link to="/home">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/">Login</Link>
+      </nav>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route
           exact
           path="/"
@@ -34,10 +40,11 @@ class Example extends Component {
               PageAuthenticated="home"
               urlRegister="http://example.com/api/auth/register"
               urlLogin="http://example.com/api/auth/login"
-            />}
-
+            />
+          }
         />
       </Routes>
+    </>
   }
 }
 

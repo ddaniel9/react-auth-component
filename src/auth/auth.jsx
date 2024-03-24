@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 import { isAuthenticated } from './handleJwt.js';
 import Login from './login.jsx';
 import Register from './register.jsx';
 
 const Auth = ({ PageAuthenticated, urlRegister, urlLogin,}) => {
-  const history = useHistory();  
+  const navigate = useNavigate();  
 
   const [loading, setLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
@@ -14,7 +14,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin,}) => {
     const checkAuthStatus = async () => {
       const userIsAuthenticated = await isAuthenticated();
       if (userIsAuthenticated) {
-        history.push(`/${PageAuthenticated}`);
+        navigate(`/${PageAuthenticated}`);
       }
   
       setLoading(false);
@@ -25,7 +25,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin,}) => {
   
 
   const handleLoginSuccess = () => {
-    history.push(`/${PageAuthenticated}`);
+    navigate(`/${PageAuthenticated}`);
   };
 
   const handleToggleLogin = () => {
