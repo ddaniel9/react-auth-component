@@ -15,29 +15,44 @@ npm install --save react-auth-component
 //IMPORTANT!:  the api rest the you are calling expect a Json with field called 'jwt' 
 ```jsx
 import React, { Component } from 'react'
-
-import Auth from 'react-auth-component'
+import { Route, Link, Routes } from 'react-router-dom'; 
+import Home from '../page/home';
+import About from '../page/notFound';
+import { Auth } from 'react-auth-component'
 import 'react-auth-component/dist/index.css'
 
 class Example extends Component {
   render() {
- <Router>
-      <Route path="/home" component={Home} />
-      <Route path="/about" component={About} />
-      <Route
-        path="/"
-        component={() => (
-          <Auth
-            PageAuthenticated="home"
-            urlRegister="http://example.com/api/auth/register"
-            urlLogin="http://example.com/api/auth/login"
-          />
-        )}
-      />
- </Router>
+ <Routes>
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
+        <Route
+          exact
+          path="/"
+          element={
+            <Auth
+              PageAuthenticated="home"
+              urlRegister="http://example.com/api/auth/register"
+              urlLogin="http://example.com/api/auth/login"
+            />}
+
+        />
+      </Routes>
   }
 }
+
+const App = () => {
+  return (
+    <Router>
+      <Example />
+    </Router>
+  );
+};
+
 ```
+
+
+
 
 ## License
 
