@@ -1,6 +1,6 @@
 // Home.js
 import React from 'react';
-import { useLocation  } from 'wouter';
+import { useLocation  } from 'react-router-dom';
 import {clearAuthToken} from 'react-auth-component';
 
 const Home = () => {

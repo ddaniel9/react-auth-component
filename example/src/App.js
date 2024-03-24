@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { Router } from 'wouter';
+import { BrowserRouter as Router } from 'react-router-dom'; 
 import AppRoutes from './route/routes';
 
 const App = () => {
