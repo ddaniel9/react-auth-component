@@ -1,5 +1,5 @@
 {
-  "name": "@ddaniel9/react-auth-component",
+  "name": "react-auth-component",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
