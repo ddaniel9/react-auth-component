@@ -4,7 +4,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "version": "2.0.1",
-  "description": "react-auth-component works with react-router-dom",
+  "description": "react-auth-component",
   "author": "ddaniel9",
   "license": "MIT",
   "repository": {
