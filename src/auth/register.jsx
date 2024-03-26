@@ -4,7 +4,7 @@ import { saveAuthToken } from './handleJwt.js';
 import stylesLogin from './login.css';
 
 
-const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin }) => {
+const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin, tokenName }) => {
   const [userData, setUserData] = useState({
     email: '',
     password: '',
@@ -45,10 +45,10 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin }) => 
         }
       );
 
-      console.log(authResponse.data.jwt);
 
-      if (authResponse.data.jwt) {
-        await saveAuthToken(response.data.jwt);
+      
+      if (authResponse.data) {
+        await saveAuthToken(response.data,tokenName);
         onRegisterSuccess();
         setUserData({
           email: '',

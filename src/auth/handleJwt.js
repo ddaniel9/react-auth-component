@@ -1,10 +1,10 @@
-const AUTH_TOKEN_KEY = 'authToken';
+const AUTH_TOKEN_KEY = 'token';
 
 // Funzione per salvare il token in localStorage
-export const saveAuthToken = (token) => {
+export const saveAuthToken = (token,tokenName) => {
   return new Promise((resolve, reject) => {
     try {
-      localStorage.setItem(AUTH_TOKEN_KEY, token);
+      localStorage.setItem(AUTH_TOKEN_KEY, eval("token.tokenName"));
       resolve();
     } catch (error) {
       console.error('Errore durante il salvataggio del token:', error);

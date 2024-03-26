@@ -3,7 +3,7 @@ import axios from 'axios';
 import { saveAuthToken } from './handleJwt.js';
 import stylesLogin from './login.css';
 
-const Login = ({ urlLogin, onLoginSuccess, toggleLogin }) => {
+const Login = ({ urlLogin, onLoginSuccess, toggleLogin, tokenName }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -26,10 +26,9 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin }) => {
         }
       );
 
-      console.log(response.data.jwt);
 
-      if (response.data.jwt) {
-        await saveAuthToken(response.data.jwt);
+      if (response.data) {
+        await saveAuthToken(response.data,tokenName);
         onLoginSuccess();
         setEmail('');
         setPassword('');

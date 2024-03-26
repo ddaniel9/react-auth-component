@@ -4,7 +4,7 @@ import { isAuthenticated } from './handleJwt.js';
 import Login from './login.jsx';
 import Register from './register.jsx';
 
-const Auth = ({ PageAuthenticated, urlRegister, urlLogin,}) => {
+const Auth = ({ PageAuthenticated, urlRegister, urlLogin, tokenName}) => {
   const navigate = useNavigate();  
 
   const [loading, setLoading] = useState(true);
@@ -44,6 +44,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin,}) => {
               onLoginSuccess={handleLoginSuccess} 
               toggleLogin={handleToggleLogin} 
               urlLogin={urlLogin}
+              tokenName={tokenName}
             />
           ) : (
             <Register 
@@ -51,6 +52,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin,}) => {
               urlRegister={urlRegister}
               urlLogin={urlLogin}
               toggleLogin={handleToggleLogin} 
+              tokenName={tokenName} 
             />
           )}
         </div>

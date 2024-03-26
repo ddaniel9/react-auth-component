@@ -12,7 +12,12 @@ npm install --save react-auth-component
 
 ## Usage
 //This is a simple manager of login & registration with JWT json web token, is good to use if you want to create a login very fast just to start your application.
-//IMPORTANT!:  the api rest the you are calling expect a Json with field called 'jwt' 
+//IMPORTANT!:
+in the Example behind the api rest the you are calling expect a Json with field called 'jwt', if you have a different name put in : tokenName="yournameTokenJson"
+{
+    "jwt": "eyJhbGcinometokencasualJH6omU",
+    "id": 12,
+}
 ```jsx
 import React, { Component } from 'react'
 import { Route, Link, Routes } from 'react-router-dom'; 
@@ -40,6 +45,7 @@ class Example extends Component {
               PageAuthenticated="home"
               urlRegister="http://example.com/api/auth/register"
               urlLogin="http://example.com/api/auth/login"
+              tokenName="jwt"
             />
           }
         />
