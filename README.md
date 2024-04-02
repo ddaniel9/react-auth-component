@@ -49,7 +49,7 @@ class Example extends Component {
               PageAuthenticated="home"
               urlRegister="http://example.com/api/auth/register"
               urlLogin="http://example.com/api/auth/login"
-              tokenName="jwt"
+              tokenServerName="jwt"
             />
           }
         />

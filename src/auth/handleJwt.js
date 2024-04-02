@@ -4,7 +4,11 @@ const AUTH_TOKEN_KEY = 'token';
 export const saveAuthToken = (token,tokenName) => {
   return new Promise((resolve, reject) => {
     try {
-      localStorage.setItem(AUTH_TOKEN_KEY, eval("token.tokenName"));
+      localStorage.setItem(AUTH_TOKEN_KEY, eval("token[tokenName]"));
+      // console.log("token.tokenName: "+eval("token[tokenName]"));
+      // // console.log("eval all:"+eval(eval("token")+"."+eval("tokenName")));
+      // console.log("token : "+eval("token"));
+      // console.log("tokenName : "+eval("tokenName"));
       resolve();
     } catch (error) {
       console.error('Errore durante il salvataggio del token:', error);
@@ -44,7 +48,7 @@ export const isAuthenticated = () => {
   return new Promise((resolve, reject) => {
     try {
       const authToken = localStorage.getItem(AUTH_TOKEN_KEY);
-      resolve(authToken !== null);
+      resolve((authToken !== null) );//| (authToken!=='undefined')
     } catch (error) {
       console.error('Errore durante la verifica dello stato di autenticazione:', error);
       reject(error);
