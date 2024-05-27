@@ -1,10 +1,12 @@
 const AUTH_TOKEN_KEY = 'token';
 
 // Funzione per salvare il token in localStorage
-export const saveAuthToken = (token,tokenName) => {
+export const saveAuthToken = (data,tokenName) => {
   return new Promise((resolve, reject) => {
     try {
-      localStorage.setItem(AUTH_TOKEN_KEY, eval("token[tokenName]"));
+      localStorage.setItem(AUTH_TOKEN_KEY, eval("data[tokenName]"));
+      localStorage.setItem("username", data?.username);
+      localStorage.setItem("userId", data?.id);
       // console.log("token.tokenName: "+eval("token[tokenName]"));
       // // console.log("eval all:"+eval(eval("token")+"."+eval("tokenName")));
       // console.log("token : "+eval("token"));
