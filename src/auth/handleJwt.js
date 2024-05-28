@@ -1,16 +1,14 @@
+import jwtDecode from 'jwt-decode';
+
 const AUTH_TOKEN_KEY = 'token';
 
 // Funzione per salvare il token in localStorage
-export const saveAuthToken = (data, tokenName) => {
+export const saveAuthToken = (data,tokenName) => {
   return new Promise((resolve, reject) => {
     try {
       localStorage.setItem(AUTH_TOKEN_KEY, eval("data[tokenName]"));
       localStorage.setItem("username", data?.username);
       localStorage.setItem("userId", data?.id);
-      // console.log("token.tokenName: "+eval("token[tokenName]"));
-      // // console.log("eval all:"+eval(eval("token")+"."+eval("tokenName")));
-      // console.log("token : "+eval("token"));
-      // console.log("tokenName : "+eval("tokenName"));
       resolve();
     } catch (error) {
       console.error('Errore durante il salvataggio del token:', error);
@@ -45,18 +43,29 @@ export const clearAuthToken = () => {
   });
 };
 
+export const isTokenExpired = (token) => {
+  if (!token) {
+    return true;
+  }
+
+  try {
+    const decodedToken = jwtDecode(token);
+    const currentTime = Date.now() / 1000; // Converti in secondi
+
+    return decodedToken.exp < currentTime;
+  } catch (error) {
+    console.error('Errore durante la decodifica del token:', error);
+    return true;
+  }
+};
+
+
 // Funzione per verificare lo stato di autenticazione
 export const isAuthenticated = () => {
   return new Promise((resolve, reject) => {
     try {
       const authToken = localStorage.getItem(AUTH_TOKEN_KEY);
-      console.log("authToken: " + authToken);
-      console.log("authTokenIf: " + authToken && authToken !== 'undefined');
-      if (authToken && authToken !== 'undefined') {
-        resolve(true);
-      } else {
-        resolve(false);
-      }
+      resolve((authToken !== null && !isTokenExpired(authToken)) );//| (authToken!=='undefined')
     } catch (error) {
       console.error('Errore durante la verifica dello stato di autenticazione:', error);
       reject(error);

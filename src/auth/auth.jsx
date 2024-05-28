@@ -14,7 +14,6 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin, tokenServerName}) => {
     const checkAuthStatus = async () => {
       const userIsAuthenticated = await isAuthenticated();
       if (userIsAuthenticated) {
-        console.log("errore jwt:" + userIsAuthenticated)
         navigate(`/${PageAuthenticated}`);
       }
   
@@ -22,7 +21,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin, tokenServerName}) => {
     };
   
     checkAuthStatus();
-  }, [navigate,PageAuthenticated]); 
+  }, [PageAuthenticated]); 
   
 
   const handleLoginSuccess = () => {
