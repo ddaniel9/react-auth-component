@@ -21,7 +21,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin, tokenServerName}) => {
     };
   
     checkAuthStatus();
-  }, [PageAuthenticated]); 
+  }, [navigate,PageAuthenticated]); 
   
 
   const handleLoginSuccess = () => {
