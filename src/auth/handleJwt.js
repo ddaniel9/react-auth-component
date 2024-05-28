@@ -1,7 +1,7 @@
 const AUTH_TOKEN_KEY = 'token';
 
 // Funzione per salvare il token in localStorage
-export const saveAuthToken = (data,tokenName) => {
+export const saveAuthToken = (data, tokenName) => {
   return new Promise((resolve, reject) => {
     try {
       localStorage.setItem(AUTH_TOKEN_KEY, eval("data[tokenName]"));
@@ -50,6 +50,8 @@ export const isAuthenticated = () => {
   return new Promise((resolve, reject) => {
     try {
       const authToken = localStorage.getItem(AUTH_TOKEN_KEY);
+      console.log("authToken: " + authToken);
+      console.log("authTokenIf: " + authToken && authToken !== 'undefined');
       if (authToken && authToken !== 'undefined') {
         resolve(true);
       } else {
