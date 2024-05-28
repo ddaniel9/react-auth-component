@@ -14,7 +14,11 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin, tokenServerName}) => {
     const checkAuthStatus = async () => {
       const userIsAuthenticated = await isAuthenticated();
       if (userIsAuthenticated) {
+        console.log("errore jwt:" + userIsAuthenticated)
         navigate(`/${PageAuthenticated}`);
+      }else{
+        navigate("/login");
+        console.log("correct jwt:" + userIsAuthenticated);
       }
   
       setLoading(false);
