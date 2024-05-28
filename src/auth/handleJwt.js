@@ -50,7 +50,11 @@ export const isAuthenticated = () => {
   return new Promise((resolve, reject) => {
     try {
       const authToken = localStorage.getItem(AUTH_TOKEN_KEY);
-      resolve((authToken !== null) );//| (authToken!=='undefined')
+      if (authToken && authToken !== 'undefined') {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
     } catch (error) {
       console.error('Errore durante la verifica dello stato di autenticazione:', error);
       reject(error);
