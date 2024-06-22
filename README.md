@@ -22,6 +22,8 @@ EXAMPLE of json that you can receive:
     "id": 12,
 }
 
+In registration case, you have a response from the url Registration, and in this case tha properties of response must be called "data" that is it the message that you have to show to a customer.
+
 ```jsx
 import React, { Component } from 'react'
 import { Route, Link, Routes } from 'react-router-dom'; 

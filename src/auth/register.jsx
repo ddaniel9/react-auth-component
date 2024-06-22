@@ -37,24 +37,25 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin, token
 
       console.log(response);
 
-      const authResponse = await axios.post(
-        urlLogin,
-        {
-          password,
-          username: email,
-        }
-      );
+      // const authResponse = await axios.post(
+      //   urlLogin,
+      //   {
+      //     password,
+      //     username: email,
+      //   }
+      // );
 
 
       
-      if (authResponse.data) {
-        await saveAuthToken(response.data,tokenName);
-        onRegisterSuccess();
+      if (response.data) {
+        // await saveAuthToken(response.data,tokenName);
+        // onRegisterSuccess();
         setUserData({
           email: '',
           password: '',
           password_confirmation: '',
         });
+        setError(response.data);
       } else {
         setError('Registration Failed');
       }
