@@ -44,7 +44,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin, tokenServerName}) => {
               onLoginSuccess={handleLoginSuccess} 
               toggleLogin={handleToggleLogin} 
               urlLogin={urlLogin}
-              tokenName={tokenServerName}
+              tokenName={tokenServerName?tokenServerName:'jwt'}
             />
           ) : (
             <Register 
@@ -52,7 +52,7 @@ const Auth = ({ PageAuthenticated, urlRegister, urlLogin, tokenServerName}) => {
               urlRegister={urlRegister}
               urlLogin={urlLogin}
               toggleLogin={handleToggleLogin} 
-              tokenName={tokenServerName} 
+              tokenName={tokenServerName?tokenServerName:'jwt'} 
             />
           )}
         </div>

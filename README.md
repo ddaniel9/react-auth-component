@@ -22,7 +22,7 @@ EXAMPLE of json that you can receive:
     "id": 12,
 }
 
-In registration case, you have a response from the url Registration, and in this case tha properties of response must be called "data" that is it the message that you have to show to a customer.
+if as a response it has a String it will be showd as message in red 
 
 ```jsx
 import React, { Component } from 'react'

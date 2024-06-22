@@ -7,6 +7,8 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin, tokenName }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
 
   const handleLogin = async () => {
     try {
@@ -26,18 +28,20 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin, tokenName }) => {
         }
       );
 
-
-      if (response.data) {
+    //  console.log('response',response);
+  
+      if (response.data && typeof response.data === 'object' && (tokenName in response.data)) {
         await saveAuthToken(response.data,tokenName);
         onLoginSuccess();
         setEmail('');
         setPassword('');
       } else {
-        alert('Error: Invalid credentials');
+        // console.log("error: ",response.data)
+        setError('Error: '+response.data);
       }
     } catch (error) {
       console.error(error);
-      alert('Error: An unexpected error occurred');
+      setError('Error: An unexpected error occurred');
     } finally {
       setLoading(false);
     }
@@ -72,6 +76,8 @@ const Login = ({ urlLogin, onLoginSuccess, toggleLogin, tokenName }) => {
           <button className={stylesLogin.buttonLogin} onClick={toggleLogin}>Switch to Register</button>
         </div>
       )}
+              <p style={{ color: 'red' }}>{error}</p>
+
     </div>
   </div>
   );

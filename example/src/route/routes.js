@@ -23,9 +23,9 @@ const AppRoutes = () => {
           element={
             <Auth
               PageAuthenticated="home"
-              urlRegister="http://192.168.1.10:8080/api/auth/register"
-              urlLogin="http://192.168.1.10:8080/api/auth/login"
-              tokenName="jwt"
+              urlRegister="http://192.168.1.5:8080/api/auth/register"
+              urlLogin="http://192.168.1.5:8080/api/auth/login"
+              tokenServerName="jwt"
             />
           }
         />
