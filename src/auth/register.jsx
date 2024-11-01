@@ -18,7 +18,7 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin, token
     const { email, password, password_confirmation } = userData;
 
     try {
-      
+
       if (!email || !password || !password_confirmation) {
         setError('Please fill in all the fields');
         return;
@@ -46,7 +46,7 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin, token
       // );
 
 
-      
+
       if (response.data) {
         // await saveAuthToken(response.data,tokenName);
         // onRegisterSuccess();
@@ -105,7 +105,9 @@ const Register = ({ urlLogin, urlRegister, onRegisterSuccess, toggleLogin, token
             <button className={stylesLogin.buttonLogin} onClick={toggleLogin}>Switch to Login</button>
           </div>
         )}
-        <p style={{ color: 'red' }}>{error}</p>
+        <p style={{ color: error.includes("successfully") || error.includes("successo") ? 'green' : 'red' }}>
+          {error}
+        </p>
       </div>
     </div>
   );
